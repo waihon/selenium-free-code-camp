@@ -18,8 +18,19 @@ public class LoginPage extends BasePage {
     }
 
     // Transition method
-    public void clickLoginButton() {
+    public ProductsPage clickLoginButton() {
         click(loginButton);
+        return new ProductsPage();
+    }
+
+    public ProductsPage logIntoApplication(String username, String password) {
+        setUsername(username);
+        setPassword(password);
+        return clickLoginButton();
+    }
+
+    public String getErrorMessage() {
+        return find(errorMessage).getText();
     }
 
 }
